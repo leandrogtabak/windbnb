@@ -24,7 +24,7 @@ export default function Home({ stays }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch('http://localhost:3000/stays.json');
+  const res = await fetch('https://raw.githubusercontent.com/leandrogtabak/windbnb/main/public/stays.json');
   const stays = await res.json();
 
   return {
