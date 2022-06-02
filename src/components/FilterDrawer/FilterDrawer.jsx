@@ -1,7 +1,7 @@
 import { Search, LocationOn } from '@material-ui/icons';
 import { showFilterDrawer, userChoice, staysAvailable } from '../../Helper/Context';
 import ItemCounter from '../ItemCounter/ItemCounter';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 
 import styles from './FilterDrawer.module.css';
 
@@ -82,12 +82,6 @@ const FilterDrawer = ({ stays }) => {
     setStaysFiltered(filteredStays);
   };
 
-  useEffect(() => {
-    // console.log('In Helsinki', filterByLocation(stays, 'helsinki'));
-    // console.log('With room for more than 5 guests', filterByGuests(stays, 5));
-    console.log(stayChoice);
-  }, [stayChoice]);
-
   //otra solucion
   // const uniqueCities = Array.from(new Set(filteredApartments.map((a) => a.city))).map((id) => {
   //   return filteredApartments.find((a) => a.city === id);
@@ -144,7 +138,12 @@ const FilterDrawer = ({ stays }) => {
               {uniqueCities.map(
                 (stay) =>
                   showFiltered && (
-                    <button data-id={`${stay.city}, ${stay.country}`} onClick={onSelectLocation} className={styles.filterDrawer_input_cityList_item}>
+                    <button
+                      key={stay.title}
+                      data-id={`${stay.city}, ${stay.country}`}
+                      onClick={onSelectLocation}
+                      className={styles.filterDrawer_input_cityList_item}
+                    >
                       <LocationOn />
                       <p>
                         {stay.city}, {stay.country}
