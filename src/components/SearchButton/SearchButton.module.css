@@ -1,0 +1,42 @@
+.button {
+
+    border: none;
+    background-color: transparent;
+    box-shadow: var(--box-shadow);
+    border-radius: 16px;
+    font-size: 0.875rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.button:hover {
+
+    cursor: pointer;
+
+}
+
+.button_location {
+    font-family: var(--font-family-secondary);
+    font-size: 0.875rem;
+    border-right: 1px solid #F2F2F2;
+    padding: 18px 16px;
+}
+
+.button_guests {
+    font-family: var(--font-family-secondary);
+    color: #BDBDBD;
+    font-weight: 400;
+    border-right: 1px solid #F2F2F2;
+    padding: 18px 16px;
+}
+
+.button_search {
+    color: #EB5757;
+    padding: 0;
+    margin: 18px 19px;
+    margin-right: 10px;
+}

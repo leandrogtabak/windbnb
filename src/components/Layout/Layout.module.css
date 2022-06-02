@@ -1,0 +1,68 @@
+.container {
+
+    padding-bottom: 24px;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+
+
+}
+
+
+
+
+.containerLight::after {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 100px);
+
+    background-color: rgba(79, 79, 79);
+
+    transition: all 300ms ease-in-out;
+
+    opacity: 0;
+}
+
+.containerDark::after {
+
+    opacity: 0.4;
+
+}
+
+.layoutContainer {
+    max-width: 1250px;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+
+}
+
+
+
+.header {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+}
+
+.footer {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-color-secondary);
+    padding-bottom: 24px;
+}
+
+.footer a {
+    font-weight: 700;
+    text-decoration: underline;
+}
