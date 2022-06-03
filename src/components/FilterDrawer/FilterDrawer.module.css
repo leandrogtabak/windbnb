@@ -1,5 +1,5 @@
 .container {
-    position: absolute;
+    position: fixed;
     top: 0px;
     width: 100%;
     padding-bottom: 60px;
@@ -25,14 +25,15 @@
 
 
 .filterDrawerContainer {
+
     max-width: 1250px;
     margin: 0 auto;
 
+    position: sticky;
+    top: 0;
+
 
 }
-
-
-
 
 
 
@@ -259,4 +260,79 @@
 .itemCounter {
 
     margin-bottom: 24px;
+}
+
+@media (max-width:560px) {
+    .container {
+        padding-bottom: 0;
+    }
+
+    .filterDrawer {
+        margin: 0 12px;
+        margin-top: 93px;
+
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .filterDrawer_input {
+
+
+        height: 58px;
+
+
+    }
+
+    .filterDrawer_inputLocationContainer {
+
+        border-radius: 16px 16px 0 0;
+        height: 58px;
+        box-shadow: var(--box-shadow);
+        clip-path: none;
+
+
+        display: flex;
+
+    }
+
+    .filterDrawer_inputGuestsContainer {
+
+        border-radius: 0 0 16px 16px;
+        height: 58px;
+        box-shadow: var(--box-shadow);
+        clip-path: none;
+
+        display: flex;
+
+    }
+
+    .filterDrawer_buttonSearchContainer {
+        box-shadow: none;
+        clip-path: none;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+    }
+
+    .filterDrawer_input_cityList_item:last-child {
+
+        margin-bottom: 60px;
+
+    }
+
+    .filterLists {
+
+        padding-top: 30px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filterLists_guests {
+
+
+        margin-top: 0px;
+
+    }
 }

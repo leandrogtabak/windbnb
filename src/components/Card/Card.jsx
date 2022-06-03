@@ -4,9 +4,7 @@ import { StarRateRounded } from '@material-ui/icons';
 const Card = ({ stay }) => {
   return (
     <div className={styles.container}>
-      <div>
-        <img className={styles.cardImage} src={stay.photo} alt={stay.title} />
-      </div>
+      <img className={styles.cardImage} src={stay.photo} alt={stay.title} />
 
       <div className={styles.details}>
         {stay.superHost && (

@@ -9,7 +9,8 @@ const SearchButton = () => {
   const { setShowDrawer } = useContext(showFilterDrawer);
   const { stayChoice } = useContext(userChoice);
 
-  const showFilter = () => {
+  const showFilter = (e) => {
+    e.stopPropagation();
     setShowDrawer(true);
   };
   return (

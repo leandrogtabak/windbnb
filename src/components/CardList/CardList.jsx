@@ -12,12 +12,15 @@ const CardList = () => {
         <h2>Stays in Finland</h2>
         <p>{staysFiltered.length} stays</p>
       </div>
-
-      <div className={styles.cardsContainer}>
-        {staysFiltered.map((stay) => (
-          <Card stay={stay} key={stay.title} />
-        ))}
-      </div>
+      {staysFiltered.length > 0 ? (
+        <div className={styles.cardsContainer}>
+          {staysFiltered.map((stay) => (
+            <Card stay={stay} key={stay.title} />
+          ))}
+        </div>
+      ) : (
+        <p className={styles.noResults}>No Results</p>
+      )}
     </div>
   );
 };

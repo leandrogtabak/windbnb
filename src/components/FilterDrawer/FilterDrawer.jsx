@@ -14,6 +14,7 @@ const FilterDrawer = ({ stays }) => {
   const [showFiltered, setShowFiltered] = useState(true); //Mostrar o no la lista de locaciones filtradas por el input del usuario
   const [adultGuests, setAdultGuests] = useState(0);
   const [childGuests, setChildGuests] = useState(0);
+  const [showItemCounters, setShowItemCounters] = useState(false);
 
   const [onChangeValue, setOnChangeValue] = useState('');
 
@@ -40,6 +41,11 @@ const FilterDrawer = ({ stays }) => {
     e.preventDefault();
     e.target.parentNode.style.borderRadius = '16px';
     e.target.parentNode.style.border = '1px solid #333333';
+    if (e.target.id === 'itemCounters') {
+      setShowItemCounters(true);
+    } else {
+      setShowItemCounters(false);
+    }
   };
   //quitar outline a las cajas
   const removeInputOutline = (e) => {
@@ -113,10 +119,10 @@ const FilterDrawer = ({ stays }) => {
               />
             </div>
           </div>
-          <div className={styles.filterDrawer_inputGuestsContainer}>
+          <div id='counters' className={styles.filterDrawer_inputGuestsContainer}>
             <div className={styles.filterDrawer_input}>
               <p>Guests</p>
-              <button className={styles.filterDrawer_guestsButton} onFocus={addInputOutline} onBlur={removeInputOutline}>
+              <button id='itemCounters' className={styles.filterDrawer_guestsButton} onFocus={addInputOutline} onBlur={removeInputOutline}>
                 {(adultGuests !== 0 ? `Adult guests: ${adultGuests}.\u00A0` : '') + (childGuests !== 0 ? `Child guests: ${childGuests}` : '') === ''
                   ? 'Add guests'
                   : (adultGuests !== 0 ? `Adult guests: ${adultGuests}.\u00A0` : '') + (childGuests !== 0 ? `Child guests: ${childGuests}` : '')}
@@ -134,28 +140,35 @@ const FilterDrawer = ({ stays }) => {
         </div>
         <div className={styles.filterLists}>
           <div className={styles.filterLists_locations}>
-            <div className={styles.filterDrawer_input_cityList}>
-              {uniqueCities.map(
-                (stay) =>
-                  showFiltered && (
-                    <button
-                      key={stay.title}
-                      data-id={`${stay.city}, ${stay.country}`}
-                      onClick={onSelectLocation}
-                      className={styles.filterDrawer_input_cityList_item}
-                    >
-                      <LocationOn />
-                      <p>
-                        {stay.city}, {stay.country}
-                      </p>
-                    </button>
-                  )
-              )}
-            </div>
+            {!showItemCounters && (
+              <div className={styles.filterDrawer_input_cityList}>
+                {uniqueCities.map(
+                  (stay) =>
+                    showFiltered && (
+                      <button
+                        key={stay.title}
+                        data-id={`${stay.city}, ${stay.country}`}
+                        onClick={onSelectLocation}
+                        className={styles.filterDrawer_input_cityList_item}
+                      >
+                        <LocationOn />
+                        <p>
+                          {stay.city}, {stay.country}
+                        </p>
+                      </button>
+                    )
+                )}
+              </div>
+            )}
           </div>
           <div className={styles.filterLists_guests}>
-            <ItemCounter value={getAdultGuests} className={styles.itemCounter} item='Adults' subItem='Ages 13 or above' />
-            <ItemCounter value={getChildGuests} item='Children' subItem='Ages 2-12' />
+            {showItemCounters && (
+              <>
+                <ItemCounter value={getAdultGuests} className={styles.itemCounter} item='Adults' subItem='Ages 13 or above' />
+                <ItemCounter value={getChildGuests} item='Children' subItem='Ages 2-12' />
+                <div style={{ paddingBottom: '80px' }}></div>
+              </>
+            )}
           </div>
           <div className={styles.filterLists_searchBlank}></div>
         </div>
