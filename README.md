@@ -34,7 +34,7 @@
 
 ## Overview
 
-![screenshot](https://github.com/leandrogtabak/windbnb/blob/master/demo.jpeg)
+![screenshot](https://github.com/leandrogtabak/windbnb/blob/main/demo.jpeg)
 
 ### Built With
 
