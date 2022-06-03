@@ -164,8 +164,8 @@ const FilterDrawer = ({ stays }) => {
           <div className={styles.filterLists_guests}>
             {showItemCounters && (
               <>
-                <ItemCounter value={getAdultGuests} className={styles.itemCounter} item='Adults' subItem='Ages 13 or above' />
-                <ItemCounter value={getChildGuests} item='Children' subItem='Ages 2-12' />
+                <ItemCounter startValue={adultGuests} value={getAdultGuests} className={styles.itemCounter} item='Adults' subItem='Ages 13 or above' />
+                <ItemCounter startValue={childGuests} value={getChildGuests} item='Children' subItem='Ages 2-12' />
                 <div style={{ paddingBottom: '80px' }}></div>
               </>
             )}

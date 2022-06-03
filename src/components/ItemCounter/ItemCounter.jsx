@@ -2,8 +2,8 @@ import styles from './ItemCounter.module.css';
 import { AddRounded, RemoveRounded } from '@material-ui/icons';
 import { useState } from 'react';
 
-const ItemCounter = ({ item, subItem, value, ...props }) => {
-  const [count, setCount] = useState(0);
+const ItemCounter = ({ item, subItem, value, startValue, ...props }) => {
+  const [count, setCount] = useState(startValue);
 
   /* Comentarios:
 Nunca poner esto aca afuera
